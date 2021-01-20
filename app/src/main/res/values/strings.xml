@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Laboratorio-JavaMail</string>
+
+    <string name="hint_correo_remitente">Ingrese su Correo</string>
+    <string name="hint_contrasena_remitente">Ingrese su Contraseña</string>
+    <string name="hint_asunto">Asunto</string>
+    <string name="hint_correo_destino">Para:</string>
+    <string name="hint_mensaje">Mensaje</string>
+    <string name="btn_enviar">Enviar Correo</string>
+
+</resources>
