@@ -2,6 +2,7 @@ package co.edu.unipiloto.laboratorio_javamail;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import java.util.Properties;
 
@@ -16,10 +17,12 @@ import javax.mail.internet.MimeMessage;
 public class JavaMail extends AsyncTask<String, Void, Void> {
 
     private Session sesion;
+    private Context context;
     private String EMAIL_ORIGEN;
     private String CONTRASENA_ORIGEN;
 
     public JavaMail(Context context) {
+        this.context = context;
         this.EMAIL_ORIGEN = context.getString(R.string.correo);
         this.CONTRASENA_ORIGEN = context.getString(R.string.contrasena);
     }
@@ -63,8 +66,9 @@ public class JavaMail extends AsyncTask<String, Void, Void> {
             mimeMessage.setSubject(asunto);
             mimeMessage.setText(mensaje);
             Transport.send(mimeMessage);
+            Toast.makeText(context, "Mensaje Enviado Con Correo", Toast.LENGTH_SHORT).show();
         } catch (MessagingException e) {
-            System.out.println("Error en el envio");
+            Toast.makeText(context, "Error al Enviar Mensaje", Toast.LENGTH_SHORT).show();
         }
         return null;
     }

@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         this.txtMensaje.getText().toString(),
                         this.txtCorreoRemitente.getText().toString(),
                         this.txtContrasenaRemitente.getText().toString());
-                Toast.makeText(MainActivity.this, "Mensaje Enviado Con Correo", Toast.LENGTH_SHORT).show();
             } else {
                 this.txtCorreoDestino.setError("Campo Requerido");
                 this.txtAsunto.setError("Campo Requerido");
