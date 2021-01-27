@@ -1,6 +1,5 @@
 package co.edu.unipiloto.laboratorio_javamail;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 
@@ -20,7 +19,7 @@ public class JavaMail extends AsyncTask<String, Void, Void> {
     private String EMAIL_ORIGEN;
     private String CONTRASENA_ORIGEN;
 
-    public JavaMail(Context context){
+    public JavaMail(Context context) {
         this.EMAIL_ORIGEN = context.getString(R.string.correo);
         this.CONTRASENA_ORIGEN = context.getString(R.string.contrasena);
     }
@@ -39,10 +38,9 @@ public class JavaMail extends AsyncTask<String, Void, Void> {
         String emailDestino = strings[0];
         String asunto = strings[1];
         String mensaje = strings[2];
-        if(strings.length == 5){
-            EMAIL_ORIGEN = strings[3];
-            CONTRASENA_ORIGEN = strings[4];
-        }
+        EMAIL_ORIGEN = strings[3];
+        CONTRASENA_ORIGEN = strings[4];
+
         Properties properties = new Properties();
 
         properties.put("mail.smtp.host", "smtp.gmail.com");
@@ -66,7 +64,7 @@ public class JavaMail extends AsyncTask<String, Void, Void> {
             mimeMessage.setText(mensaje);
             Transport.send(mimeMessage);
         } catch (MessagingException e) {
-            e.getMessage();
+            System.out.println("Error en el envio");
         }
         return null;
     }

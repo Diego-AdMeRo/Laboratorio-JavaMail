@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,18 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (!this.txtCorreoDestino.getText().toString().equals("") &&
                     !this.txtAsunto.getText().toString().equals("") &&
                     !this.txtMensaje.getText().toString().equals("")) {
-                if (this.txtCorreoRemitente.getText().toString().equals("") &&
-                        this.txtContrasenaRemitente.getText().toString().equals("")) {
-                    new JavaMail(MainActivity.this).execute(this.txtCorreoDestino.getText().toString(),
-                            this.txtAsunto.getText().toString(),
-                            this.txtMensaje.getText().toString());
-                }else{
-                    new JavaMail(MainActivity.this).execute(this.txtCorreoDestino.getText().toString(),
-                            this.txtAsunto.getText().toString(),
-                            this.txtMensaje.getText().toString(),
-                            this.txtCorreoRemitente.getText().toString(),
-                            this.txtContrasenaRemitente.getText().toString());
-                }
+                new JavaMail(MainActivity.this).execute(this.txtCorreoDestino.getText().toString(),
+                        this.txtAsunto.getText().toString(),
+                        this.txtMensaje.getText().toString(),
+                        this.txtCorreoRemitente.getText().toString(),
+                        this.txtContrasenaRemitente.getText().toString());
+                Toast.makeText(MainActivity.this, "Mensaje Enviado Con Correo", Toast.LENGTH_SHORT).show();
             } else {
                 this.txtCorreoDestino.setError("Campo Requerido");
                 this.txtAsunto.setError("Campo Requerido");
